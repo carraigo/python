@@ -15,8 +15,14 @@ def random_password(length):
     return "".join([choice(printable) for x in range(int(length))])
 
 if __name__ == "__main__":
-    amount = int(input("How many passwords would you like to generate? "))
-    number = int(input("Length of said password(s)? "))
+    pAmount = int(input("How many passwords would you like to generate? "))
+    pLength = int(input("Length of said password(s)? "))
 
-    for i in range(1, amount + 1):
-        print(f"{repr(random_password(number))}")
+    if pAmount > 0:
+        if pLength > 0:
+            for i in range(1, pAmount + 1):
+                print(f"{repr(random_password(pLength))}")
+        else:
+            print("Password length must exceed 0.")
+    else:
+        print("Looks like you don't want to generate any passwords?")
